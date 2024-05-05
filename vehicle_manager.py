@@ -4,7 +4,7 @@ import math
 
 class Vehicle:
     def __init__(self, name: str, model: str, year: int, color: str, price: int, latitude: float,
-                 longitude: float, id=None):
+                 longitude: float, id: int = 1):
         self.id = id
         self.name = name
         self.model = model
