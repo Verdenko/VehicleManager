@@ -1,16 +1,43 @@
-# This is a sample Python script.
+from classes import Vehicle, VehicleManager
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+manager = VehicleManager(url="https://test.tspb.su/test-task")
 
+print(manager.get_vehicles())
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+print(manager.filter_vehicles(params={"price": 30000}))
 
+print(manager.filter_vehicles(params={"name": "Toyota"}))
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+print(manager.get_vehicle(vehicle_id=4))
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+print(manager.add_vehicle(
+    vehicle_data=Vehicle(
+        id=21,
+        name='Toyota',
+        model='Camry',
+        year=2021,
+        color='red',
+        price=21000,
+        latitude=55.753215,
+        longitude=37.620393
+    )
+)
+)
+print(manager.update_vehicle(
+    vehicle_data=Vehicle(
+        id=1,
+        name='Toyota',
+        model='Camry',
+        year=2021,
+        color='red',
+        price=21000,
+        latitude=55.753215,
+        longitude=37.620393
+    )
+)
+)
+print(manager.delete_vehicle(vehicle_id=1))
+
+print(manager.get_distance(4, 7))
+
+print(manager.get_nearest_vehicle(4))
