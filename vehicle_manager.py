@@ -126,16 +126,15 @@ class VehicleManager:
 
         distance = earth_radius * c
 
-        return round(distance,3)
+        return round(distance, 3)
 
     def get_nearest_vehicle(self, vehicle_id: int):
         vehicles = self.get_vehicles()
         min_distance: float = 40075000
         nearest_vehicle: Vehicle = self.get_vehicle(vehicle_id)
-        vehicles.pop(vehicle_id - 1)
 
         for vehicle in vehicles:
-            if str(vehicle.id) == str(vehicle_id):
+            if vehicle.id == vehicle_id:
                 continue
 
             distance = self.get_distance(vehicle_id, vehicle.id)
